@@ -1,7 +1,14 @@
 function setup() {
-    createCanvas(1080, 1920);
+  createCanvas(windowWidth, windowHeight);
     angleMode(DEGREES);
 }
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+// function setup() {
+//     createCanvas(1080, 1080);
+// }
 function getArcs(yeure) {
 
     // Blanc
@@ -303,19 +310,25 @@ function getArcs(yeure) {
 
 function draw() {
     stroke(238);
-    translate(300, 300);
+    translate(windowWidth/2, windowHeight/2);
     rotate(-90);
 
     let hr = hour();
     let mn = minute();
     let sc = second();
 
-    let totalmin = hr * 60 + mn;
+    let min_second = sc / 60;
+    let totalmin = hr * 60 + mn + min_second;
+    // let totalmin = hr * 60 + mn;
+    // ex 9h * 60 + 16mn = 556
     let yeurelapse = totalmin % 45;
+    // ex 556 % 45 = 16
     let yeure = int(totalmin / 45);
+    // ex 12,355555556 = 12
     let yeure_completion_ratio = yeurelapse / 45;
-
+    // ex 16 / 45 = 0,355555556
     let currentyeure = getArcs(yeure);
+    //
     let nextyeure = getArcs(yeure + 1);
 
 // A=int(A2-A1)/2+A1;
@@ -349,9 +362,11 @@ function draw() {
     let B3 = int(nextB3-currentB3)*yeure_completion_ratio+currentB3;
 
     fill(currentyeure[0][0]);
-    arc(0, 0, 500, 500, A1, B1);
+    arc(0, 0, windowWidth/2, windowWidth/2, A1, B1);
     fill(currentyeure[1][0]);
-    arc(0, 0, 500, 500, A2, B2);
+    arc(0, 0, windowWidth/2, windowWidth/2, A2, B2);
     fill(currentyeure[2][0]);
-    arc(0, 0, 500, 500, A3, B3);
+    arc(0, 0, windowWidth/2, windowWidth/2, A3, B3);
+
+
 }
