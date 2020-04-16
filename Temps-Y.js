@@ -6,9 +6,7 @@ function setup() {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
-// function setup() {
-//     createCanvas(1080, 1080);
-// }
+
 function getArcs(yeure) {
 
     // Blanc
@@ -45,20 +43,20 @@ function getArcs(yeure) {
     let pk = color(255, 127, 255);
     yeure = yeure %32;
 //-------------------------NUIT----------------------
-    //Minuit
+//Minuit
     if (yeure == 0) {
       return [
-        [bl, 270, 45],
-        [no, 45, 135],
-        [ja, 135, 270]];
+        [[0, 0, 255], -90, 45],
+        [[0,0,0], 45, 135],
+        [[255, 255, 0], 135, -90]];
 
     }
     //1Y
     if (yeure == 1) {
       return [
-        [bl, 270, 90],
-        [ro, 90, 135],
-        [ja, 135, 270]];
+        [[0, 0, 255], 270, 90],
+        [[255, 0, 0], 90, 135],
+        [[255, 255, 0], 135, 270]];
 
     }
     //2Y
@@ -137,41 +135,41 @@ function getArcs(yeure) {
     //11Y
     if (yeure == 11) {
       return [
-        [vj, 90, 135],
         [pk, 135, 315],
-        [or, 315, 90]];
+        [or, 315, 90],
+        [vj, 90, 135]];
 
     }
     //12Y
     if (yeure == 12) {
       return [
-        [vc, 90, 180],
         [pk, 180, 315],
-        [or, 315, 90]];
+        [or, 315, 90],
+        [vc, 90, 180]];
 
     }
     //13Y
     if (yeure == 13) {
       return [
-        [vc, 135, 180],
         [pk, 180, 315],
-        [vj, 315, 135]];
+        [vj, 315, 135],
+        [vc, 135, 180]];
 
     }
     //14Y
     if (yeure == 14) {
       return [
         [bc, 135, 225],
-        [pk, 225, 315],
-        [vj, 315, 135]];
+        [pk, 225, -45],
+        [vj, -45, 135]];
 
     }
     //15Y
     if (yeure == 15) {
       return [
         [vi, 135, 270],
-        [pk, 270, 315],
-        [vj, 315, 135]];
+        [pk, 270, -45],
+        [vj, -45, 135]];
     }
 
     //----------------------JOUR------------------------------
@@ -179,8 +177,8 @@ function getArcs(yeure) {
     //MIDI
     if (yeure == 16) {
       return [
-        [ma, 180, 315],
-        [no, 315, 45],
+        [ma, 180, -45],
+        [no, -45, 45],
         [ve, 45, 180]];
     }
 
@@ -293,25 +291,39 @@ function getArcs(yeure) {
     //30Y
     if (yeure == 30) {
       return [
-        [pk, 315, 45],
+        [pk, -45, 45],
         [rs, 45, 225],
-        [bc, 225, 315]];
+        [bc, 225, -45]];
 
     }
-    //31Y
+    // //31Y
+    // if (yeure == 31) {
+    //   return [
+    //     [gr, 0, 45],
+    //     [rs, 45, 225],
+    //     [bc, 225, 0]];
+    // }
+    // 31Y
     if (yeure == 31) {
       return [
-        [gr, 0, 45],
-        [rs, 45, 225],
-        [bc, 225, 0]];
+        [[127, 127, 127], 0, 45],
+        [[127, 0, 0], 45, 225],
+        [[0, 127, 255], 225, 0]];
     }
 }
 
+// function colorTransitions(){
+//     if (yeure == 7 || yeure == 15 || yeure == 23 || 31) {
+
+//     }
+// }
 
 function draw() {
     stroke(238);
+    strokeWeight(2);
     translate(windowWidth/2, windowHeight/2);
     rotate(-90);
+
 
     let hr = hour();
     let mn = minute();
@@ -328,7 +340,6 @@ function draw() {
     let yeure_completion_ratio = yeurelapse / 45;
     // ex 16 / 45 = 0,355555556
     let currentyeure = getArcs(yeure);
-    //
     let nextyeure = getArcs(yeure + 1);
 
 // A=int(A2-A1)/2+A1;
@@ -361,12 +372,65 @@ function draw() {
     let A3 = int(nextA3-currentA3)*yeure_completion_ratio+currentA3;
     let B3 = int(nextB3-currentB3)*yeure_completion_ratio+currentB3;
 
-    fill(currentyeure[0][0]);
-    arc(0, 0, windowWidth/2, windowWidth/2, A1, B1);
-    fill(currentyeure[1][0]);
-    arc(0, 0, windowWidth/2, windowWidth/2, A2, B2);
-    fill(currentyeure[2][0]);
-    arc(0, 0, windowWidth/2, windowWidth/2, A3, B3);
 
+    let radius = windowWidth;
+    if (windowHeight < radius){
+        radius = windowHeight;
+    }
+
+
+
+
+//     // let r1 = currentyeure[0][0][1];
+//     // let g1 = currentyeure[0][0][2];
+//     // let b1 = currentyeure[0][0][3];
+//     // fill(color(r1, g1, b1);
+    // fill(currentyeure[0][0]);
+fill(color(currentyeure[0][0],
+    currentyeure[0][1],
+    currentyeure[0][2]));
+    arc(0, 0, radius, radius, A1, B1);
+    // fill(currentyeure[1][0]);
+fill(color(currentyeure[1][0],
+    currentyeure[1][1],
+    currentyeure[1][2]));
+    arc(0, 0, radius, radius, A2, B2);
+    // fill(currentyeure[2][0]);
+fill(color(currentyeure[2][0],
+    currentyeure[2][1],
+    currentyeure[2][2]));
+    arc(0, 0, radius, radius, A3, B3);
+
+
+
+
+
+    let minutes_as_degrees = (totalmin % 45);
+
+    document.getElementById("yeure").innerHTML = yeure;
+    document.getElementById("min").innerHTML = int(minutes_as_degrees);
+    document.getElementById("sec").innerHTML = sc;
+    // pop();
+    // let minutes_as_degrees = int(mn /0.75);
+    // let display_yeure = yeure + 'Y : ' + minutes_as_degrees +'° ' + sc;
+    // rotate(90);
+    // translate(-200, -200);
+    // textSize(32);
+    // fill(50);
+    // text(display_yeure, -150, -150, 270, 280);
+    // pop();
+
+
+
+    // push();
+
+
+
+    // rotate(90);
+    // textSize(32);
+    // text(yeure, -600, 20);
+    // rotate(90);
+    // text(':', -500, 10);
+    // fill(0, 0, 0);
 
 }

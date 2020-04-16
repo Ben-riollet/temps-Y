@@ -4,12 +4,44 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Temps Y</title>
+  <style>
+html {
+background-color: #eeeeee;
+}
+h1 {
+  font-size : 32pt ;
+  font-family: 'Work Sans', sans-serif;
+  font-color: #000;
+  font-weight: normal;
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
-  <script type="text/javascript" src="Temps-Y.js"></script>
+    }
+p {
+  font-size : 16pt ;
+  font-family: 'Work Sans', sans-serif;
+  font-color: #000;
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+.decimaltime{
+  margin-left:20px;
+  position: absolute;
+    }
+
+  </style>
 </head>
-<body style="background-color: #eee ">
+
+<body>
+  <div class="decimaltime">
+  <h1>Temps Y</h1>
+  <p><span id="yeure">yeure</span>Y : <span id="min">minutes_as_degrees</span>° : <span id="sec">sc</span></p>
+  <p><a href="http://ben-riollet.com/__Outils__/__2020__Temps-Y/Livret-Temps-Y.pdf" target="blank"><+></a></p>
+  </div>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js" id="clock"></script>
+  <script type="text/javascript" src="Temps-Y.js"></script>
 </body>
 </html>
