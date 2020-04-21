@@ -1,5 +1,6 @@
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  let cnv = createCanvas(windowWidth, windowHeight);
+  cnv.parent('canvas-container');
   angleMode(DEGREES);
   
   let select_hours = document.getElementById("select_hours");
