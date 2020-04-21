@@ -412,16 +412,16 @@ function draw() {
   let nextA3 = nextyeure[2][1];
   let nextB3 = nextyeure[2][2];
 
-  let A1 = int(nextA1-currentA1)*yeure_completion_ratio+currentA1;
+  let A1 = ((nextA1-currentA1)%360)*yeure_completion_ratio+currentA1;
   let B1 = int(nextB1-currentB1)*yeure_completion_ratio+currentB1;
   let [r1, g1, b1] = getColor(currentyeure[0][0], nextyeure[0][0], yeure, yeure_completion_ratio);
 
-  let A2 = int(nextA2-currentA2)*yeure_completion_ratio+currentA2;
-  let B2 = int(nextB2-currentB2)*yeure_completion_ratio+currentB2;
+  let A2 = ((nextA2-currentA2)%360)*yeure_completion_ratio+currentA2;
+  let B2 = ((nextB2-currentB2)%360)*yeure_completion_ratio+currentB2;
   let [r2, g2, b2] = getColor(currentyeure[1][0], nextyeure[1][0], yeure, yeure_completion_ratio);
 
-  let A3 = int(nextA3-currentA3)*yeure_completion_ratio+currentA3;
-  let B3 = int(nextB3-currentB3)*yeure_completion_ratio+currentB3;
+  let A3 = ((nextA3-currentA3)%360)*yeure_completion_ratio+currentA3;
+  let B3 = ((nextB3-currentB3)%360)*yeure_completion_ratio+currentB3;
   let [r3, g3, b3] = getColor(currentyeure[2][0], nextyeure[2][0], yeure, yeure_completion_ratio);
 
   print_debug_yeure("c_y1", currentyeure[0][0], currentA1, currentB1);
