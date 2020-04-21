@@ -56,7 +56,7 @@ function getArcs(yeure) {
     let ma = [255, 0, 255];
     // Rose
     let pk = [255, 127, 255];
-    yeure = yeure %32;
+
 //-------------------------NUIT----------------------
 //Minuit
     if (yeure == 0) {
@@ -318,6 +318,13 @@ function getArcs(yeure) {
         [gr, 0, 45],
         [rs, 45, 225],
         [bc, 225, 0]];
+    }
+    // 32Y
+    if (yeure == 32) {
+      return [
+        [no, 45, 135],
+        [ja, 135, 270]];
+        [bl, 270, 45],
     }
 }
 
