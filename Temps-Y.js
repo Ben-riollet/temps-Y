@@ -351,6 +351,10 @@ function print_debug_yeure(id, rgb, alpha, beta){
   yeure_html.getElementsByClassName("b")[0].innerHTML = int(beta);
 }
 
+function mod(n, m) {
+  return ((n % m) + m) % m;
+}
+
 function draw() {
   stroke(238);
   strokeWeight(2);
@@ -412,16 +416,16 @@ function draw() {
   let nextA3 = nextyeure[2][1];
   let nextB3 = nextyeure[2][2];
 
-  let A1 = (((nextA1-currentA1)%360)*yeure_completion_ratio+currentA1)%360;
-  let B1 = (((nextB1-currentB1)%360)*yeure_completion_ratio+currentB1)%360;
+  let A1 = (mod(nextA1-currentA1, 360)*yeure_completion_ratio+currentA1)%360;
+  let B1 = (mod(nextB1-currentB1, 360)*yeure_completion_ratio+currentB1)%360;
   let [r1, g1, b1] = getColor(currentyeure[0][0], nextyeure[0][0], yeure, yeure_completion_ratio);
 
-  let A2 = (((nextA2-currentA2)%360)*yeure_completion_ratio+currentA2)%360;
-  let B2 = (((nextB2-currentB2)%360)*yeure_completion_ratio+currentB2)%360;
+  let A2 = (mod(nextA2-currentA2, 360)*yeure_completion_ratio+currentA2)%360;
+  let B2 = (mod(nextB2-currentB2, 360)*yeure_completion_ratio+currentB2)%360;
   let [r2, g2, b2] = getColor(currentyeure[1][0], nextyeure[1][0], yeure, yeure_completion_ratio);
 
-  let A3 = (((nextA3-currentA3)%360)*yeure_completion_ratio+currentA3)%360;
-  let B3 = (((nextB3-currentB3)%360)*yeure_completion_ratio+currentB3)%360;
+  let A3 = (mod(nextA3-currentA3, 360)*yeure_completion_ratio+currentA3)%360;
+  let B3 = (mod(nextB3-currentB3, 360)*yeure_completion_ratio+currentB3)%360;
   let [r3, g3, b3] = getColor(currentyeure[2][0], nextyeure[2][0], yeure, yeure_completion_ratio);
 
   print_debug_yeure("arc11", currentyeure[0][0], currentA1, currentB1);
