@@ -323,8 +323,8 @@ function getArcs(yeure) {
     if (yeure == 32) {
       return [
         [no, 45, 135],
-        [ja, 135, 270]];
-        [bl, 270, 45],
+        [ja, 135, 270],
+        [bl, 270, 45]];
     }
 }
 
