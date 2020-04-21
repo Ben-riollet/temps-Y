@@ -8,11 +8,11 @@
   <style>
 html {
 background-color: #eeeeee;
+margin: -10px;
 }
 h1 {
   font-size : 32pt ;
   font-family: 'Work Sans', sans-serif;
-  font-color: #000;
   font-weight: normal;
 
     }
@@ -26,11 +26,42 @@ p {
 a {
   text-decoration: none;
 }
+a:active {
+  font-color: #000;
+}
 
 .decimaltime{
   margin-left:20px;
   position: absolute;
     }
+h2{
+  font-size : 32pt ;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: normal;
+  color:#7F0400;
+  z-index: 78;
+}
+
+.a1{
+  background-color: lime;
+  z-index: 79;
+  color:#7F0400;
+  font-size : 16pt ;
+  font-family: 'Work Sans', sans-serif;
+  padding: 20px;
+}
+.a2{
+  background-color: cyan;
+  z-index: 79;
+  color:#7f00ff;
+  font-size : 16pt ;
+  font-family: 'Work Sans', sans-serif;
+  padding: 20px;
+}
+.a2a{
+  background-color: #eeeeee;
+
+}
 
   </style>
 </head>
@@ -62,13 +93,39 @@ a {
     <li id="arc32"><div class="color"></div><span class="a"></span>,<span class="b"></span></li>
     <li id="arc3_c"><div class="color"></div><span class="a"></span>,<span class="b"></span></li>
   </ul> -->
-  <p><a href="http://ben-riollet.com/__Outils__/__2020__Temps-Y/Livret-Temps-Y.pdf" target="blank"><+></a></p>
+<!--   <p><a href="http://ben-riollet.com/__Outils__/__2020__Temps-Y/Livret-Temps-Y.pdf" target="blank"><+></a></p> -->
   </div>
   <div id="canvas-container"></div>
-  <div>
-    <h1>Test bonjour</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <div class="a1">
+    <h1 style="color:yellow;">À propos</h1>
+<p>Depuis que nos demeures sont devenues les lieux de vies des hommes confinés<br>
+le temps défini par le système sexagésimal (base 60) en vigueur dans le monde entier.<br>
+L'homme passant désormais sa journée dans son appartement doit redécouper ses journées <br>différemment avec des temps dédiés aux activités essentiels que contiennent une journée, comme:<br>
+Les activités physiques et manuelles, le travail, le temps avec ses proches, dormir.  <br>
+Les yeures correspondent<br>
+aux heures se terminant par '00' (12h00).<br>
+Les yeures correspondent<br>
+aux heures se terminant par '15' (11h15).<br>
+Les yeures correspondent<br>
+aux heures se terminant par '45' (21h45).<br>
+Les yeures correspondent aux heures se terminant par '30' (4h30).</p>
   </div>
+  <div class="a2">
+    <h1 style="color:magenta;">Le temps Y</h1>
+<p>Le temps 'Y' c'est une unité de temps d'une durée de 45 minutes,
+il faut donc 32 'yeures' pour compléter une journée de 24 heures.
+Ces 32 yeures sont elles découpées en 4 périodes de 8 'yeures' dédiés au actions de la journée (activités / travail / social / nuit).
+32 car 28 formes de 'Y' et 4 de 'T' formés dans un cadre octogonal ayant les 8 couleurs CMJN (cyan, magenta, jaune et noir) et RVBB (rouge, vert, bleu et blanc) ainsi que 8 couleurs secondaires qui sont les mélanges des primaires avec leurs voisine.
+Les couleurs et les angles des 'yeures' dépendent de la position
+des branches sur le cercle chromatique.
+Celles-ci sont décalées de 45 o, soit 45 mn on dira donc:
+Il est 14 yeure et 30degrés, écrit aussi 14 Y:30o.</p>
+  </div>
+  <div class="a2">
+    <h1 style="color:#007fff;">Le matin</h1>
+<div class="a2a">
+
+</div>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js" id="clock"></script>
   <script type="text/javascript" src="Temps-Y.js"></script>
 </body>
