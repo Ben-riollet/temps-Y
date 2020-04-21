@@ -4,18 +4,22 @@ function setup() {
   angleMode(DEGREES);
 
   let select_hours = document.getElementById("select_hours");
-  for(var i=-1;i<24;i++){
-      var opt = document.createElement("option");
-      opt.innerHTML = i;
-      opt.setAttribute("value", i);
-      select_hours.appendChild(opt);
+  if(select_hours){
+    for(var i=-1;i<24;i++){
+        var opt = document.createElement("option");
+        opt.innerHTML = i;
+        opt.setAttribute("value", i);
+        select_hours.appendChild(opt);
+    }
   }
   let select_mins = document.getElementById("select_mins");
-  for(var i=-1;i<60;i++){
-      var opt = document.createElement("option");
-      opt.innerHTML = i;
-      opt.setAttribute("value", i);
-      select_mins.appendChild(opt);
+  if(select_mins) {
+    for(var i=-1;i<60;i++){
+        var opt = document.createElement("option");
+        opt.innerHTML = i;
+        opt.setAttribute("value", i);
+        select_mins.appendChild(opt);
+    }
   }
 }
 
@@ -370,8 +374,14 @@ function draw() {
   rotate(270);
 
 
-  let selected_hours = document.getElementById("select_hours").value;
-  let selected_mins = document.getElementById("select_mins").value;
+  let selected_hours = -1;
+  let selected_mins = -1;
+  if(document.getElementById("select_hours")){
+    selected_hours = document.getElementById("select_hours").value;
+  }
+  if(document.getElementById("select_mins")){
+    selected_mins = document.getElementById("select_mins").value;
+  }
 
   let hr = selected_hours > -1? int(selected_hours) : hour();
   let mn = selected_mins > -1 ? int(selected_mins) : minute();
