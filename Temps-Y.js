@@ -351,8 +351,8 @@ function draw() {
   let selected_hours = document.getElementById("select_hours").value;
   let selected_mins = document.getElementById("select_mins").value;
   
-  let hr = selected_hours > -1? selected_hours : hour();
-  let mn = selected_mins > -1 ? selected_mins : minute();
+  let hr = selected_hours > -1? int(selected_hours) : hour();
+  let mn = selected_mins > -1 ? int(selected_mins) : minute();
   let sc = second();
   
   document.getElementById("hour").innerHTML = hr;
