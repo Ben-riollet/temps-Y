@@ -2,7 +2,7 @@ function setup() {
   let cnv = createCanvas(windowWidth, windowHeight);
   cnv.parent('canvas-container');
   angleMode(DEGREES);
-  
+
   let select_hours = document.getElementById("select_hours");
   for(var i=-1;i<24;i++){
       var opt = document.createElement("option");
@@ -372,11 +372,11 @@ function draw() {
 
   let selected_hours = document.getElementById("select_hours").value;
   let selected_mins = document.getElementById("select_mins").value;
-  
+
   let hr = selected_hours > -1? int(selected_hours) : hour();
   let mn = selected_mins > -1 ? int(selected_mins) : minute();
   let sc = second();
-  
+
   document.getElementById("hour").innerHTML = hr;
   document.getElementById("min").innerHTML = mn;
 
@@ -436,18 +436,18 @@ function draw() {
   let B3 = (mod(nextB3-currentB3, 360)*yeure_completion_ratio+currentB3)%360;
   let [r3, g3, b3] = getColor(currentyeure[2][0], nextyeure[2][0], yeure, yeure_completion_ratio);
 
-  print_debug_yeure("arc11", currentyeure[0][0], currentA1, currentB1);
-  print_debug_yeure("arc12", nextyeure[0][0], nextA1, nextB1);
-  print_debug_yeure("arc1_c", [r1, g1, b1], A1, B1);
-  
-  print_debug_yeure("arc21", currentyeure[1][0], currentA2, currentB2);
-  print_debug_yeure("arc22", nextyeure[1][0], nextA2, nextB2);
-  print_debug_yeure("arc2_c", [r2, g2, b2], A2, B2);
-  
-  print_debug_yeure("arc31", currentyeure[2][0], currentA3, currentB3);
-  print_debug_yeure("arc32", nextyeure[2][0], nextA3, nextB3);
-  print_debug_yeure("arc3_c", [r3, g3, b3], A3, B3);
-  
+  // print_debug_yeure("arc11", currentyeure[0][0], currentA1, currentB1);
+  // print_debug_yeure("arc12", nextyeure[0][0], nextA1, nextB1);
+  // print_debug_yeure("arc1_c", [r1, g1, b1], A1, B1);
+
+  // print_debug_yeure("arc21", currentyeure[1][0], currentA2, currentB2);
+  // print_debug_yeure("arc22", nextyeure[1][0], nextA2, nextB2);
+  // print_debug_yeure("arc2_c", [r2, g2, b2], A2, B2);
+
+  // print_debug_yeure("arc31", currentyeure[2][0], currentA3, currentB3);
+  // print_debug_yeure("arc32", nextyeure[2][0], nextA3, nextB3);
+  // print_debug_yeure("arc3_c", [r3, g3, b3], A3, B3);
+
 
   let radius = windowWidth;
   if (windowHeight < radius){
