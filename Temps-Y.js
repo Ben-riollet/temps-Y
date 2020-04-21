@@ -1,6 +1,21 @@
 function setup() {
   createCanvas(windowWidth, windowHeight);
-    angleMode(DEGREES);
+  angleMode(DEGREES);
+  
+  let select_hours = document.getElementById("select_hours");
+  for(var i=-1;i<24;i++){
+      var opt = document.createElement("option");
+      opt.innerHTML = i;
+      opt.setAttribute("value", i);
+      select_hours.appendChild(opt);
+  }
+  let select_mins = document.getElementById("select_mins");
+  for(var i=-1;i<60;i++){
+      var opt = document.createElement("option");
+      opt.innerHTML = i;
+      opt.setAttribute("value", i);
+      select_mins.appendChild(opt);
+  }
 }
 
 function windowResized() {
@@ -333,9 +348,15 @@ function draw() {
   rotate(270);
 
 
-  let hr = hour();
-  let mn = minute();
+  let selected_hours = document.getElementById("select_hours").value;
+  let selected_mins = document.getElementById("select_mins").value;
+  
+  let hr = selected_hours > -1? selected_hours : hour();
+  let mn = selected_mins > -1 ? selected_mins : minute();
   let sc = second();
+  
+  document.getElementById("hour").innerHTML = hr;
+  document.getElementById("min").innerHTML = mn;
 
   let totalmin = hr * 60 + mn;
   // ex 9h * 60 + 16mn = 556
@@ -412,7 +433,7 @@ function draw() {
   let minutes_as_degrees = (totalmin % 45);
 
   document.getElementById("yeure").innerHTML = yeure;
-  document.getElementById("min").innerHTML = int(minutes_as_degrees);
+  document.getElementById("min_yeure").innerHTML = int(minutes_as_degrees);
   document.getElementById("sec").innerHTML = sc;
   // pop();
   // let minutes_as_degrees = int(mn /0.75);
