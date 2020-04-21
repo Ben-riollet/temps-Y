@@ -387,8 +387,12 @@ function draw() {
   let mn = selected_mins > -1 ? int(selected_mins) : minute();
   let sc = second();
 
-  document.getElementById("hour").innerHTML = hr;
-  document.getElementById("min").innerHTML = mn;
+  if(document.getElementById("hour")){
+    document.getElementById("hour").innerHTML = hr;
+  }
+  if(document.getElementById("min")){
+    document.getElementById("min").innerHTML = mn;
+  }
 
   let totalmin = hr * 60 + mn;
   // ex 9h * 60 + 16mn = 556
