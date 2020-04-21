@@ -341,6 +341,16 @@ function getColor(current_rgb, next_rgb, yeure, yeure_completion_ratio) {
   return [r, g, b];
 }
 
+function print_debug_yeure(id, rgb, alpha, beta){
+  let yeure_html = document.getElementById(id);
+  let r = rgb[0];
+  let g = rgb[1];
+  let b = rgb[2];
+  yeure_html.getElementsByClassName("color")[0].setAttribute("style", "height: 15px;width: 15px;background: rgb("+r+","+g+","+b+");float: left;");
+  yeure_html.getElementsByClassName("a")[0].innerHTML = alpha;
+  yeure_html.getElementsByClassName("b")[0].innerHTML = beta;
+}
+
 function draw() {
   stroke(238);
   strokeWeight(2);
@@ -414,6 +424,13 @@ function draw() {
   let B3 = int(nextB3-currentB3)*yeure_completion_ratio+currentB3;
   let [r3, g3, b3] = getColor(currentyeure[2][0], nextyeure[2][0], yeure, yeure_completion_ratio);
 
+  print_debug_yeure("c_y1", currentyeure[0][0], currentA1, currentB1);
+  print_debug_yeure("c_y2", currentyeure[1][0], currentA2, currentB2);
+  print_debug_yeure("c_y3", currentyeure[2][0], currentA3, currentB3);
+  
+  print_debug_yeure("n_y1", nextyeure[0][0], nextA1, nextB1);
+  print_debug_yeure("n_y2", nextyeure[1][0], nextA2, nextB2);
+  print_debug_yeure("n_y3", nextyeure[2][0], nextA3, nextB3);
 
   let radius = windowWidth;
   if (windowHeight < radius){
